@@ -20,6 +20,7 @@ def orthogonalize_line(x1, y1, x2, y2, threshold_deg=10):
         return x1, y1, x2, y2
 
 def run_poc(image_path, output_dxf):
+    print(image_path)
     # 1. 이미지 로드 및 그레이스케일 변환
     img = cv2.imread(image_path)
     if img is None:
@@ -56,7 +57,8 @@ def run_poc(image_path, output_dxf):
     doc.saveas(output_dxf)
     cv2.imwrite('poc_result_view.jpg', vis_img)
     print(f"검증 완료! DXF 저장됨: {output_dxf}")
+    print("라인 개수:", len(lines) if lines is not None else 0)
 
 if __name__ == "__main__":
     # 파일 경로는 본인의 환경에 맞게 수정하세요
-    run_poc('test_input.jpg', 'output_prototype.dxf')
+    run_poc('packages/core/test_input.jpg', 'output_prototype.dxf')

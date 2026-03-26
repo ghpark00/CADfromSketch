@@ -1,0 +1,1 @@
+print("라인 개수:", len(lines) if lines is not None else 0)
